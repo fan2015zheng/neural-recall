@@ -1,24 +1,48 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Panel from './Panel'
 import TestBoard from './TestBoard'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import ParamInput from './ParamInput'
 
-const M = 20
-const N = 20
-const a = 10
-const PictureCount = 3
 
 toast.configure()
 
 function App() {
+  const [M, setM] = useState(2)
+  const [N, setN] = useState(2)
+  const [a, setA] = useState(50)
+  const [PictureCount, setPictureCount] = useState(3)
+
   const [patterns, setPatterns] = useState(() => emptyPatterns(PictureCount))
   const [synapses, setSynapses] = useState(() => null)
   const [newPattern, setNewPattern] = useState(() => emptyPattern())
   const [recallPattern, setRecallPattern] = useState(() => emptyPattern())
   const [startRecall, setStartRecall] = useState(false)
   const [x, setX] = useState(1)
+  
+  useEffect(()=> {
+  
+    function emptyPattern() {
+      const pattern = []
+      for(let i=0; i<M*N; i++) {
+        pattern.push(-1)
+      }
+      return pattern
+    }
+    function emptyPatterns(count) {
+      const patterns = []
+      for(let i=0; i<count; i++) {
+        patterns.push(emptyPattern())
+      }
+      return patterns
+    }
+
+    setPatterns(emptyPatterns(PictureCount))
+    setNewPattern(emptyPattern())
+    setRecallPattern(emptyPattern())
+  }, [PictureCount,M,N,a])
 
   function copyPicture(pictureIndex) {
     const pattern  = copyPattern(patterns[pictureIndex])
@@ -117,10 +141,45 @@ function App() {
     setStartRecall(false)
   }
 
+  function randomGeneratePattern() {  
+    const pattern = []
+    for(let i=0; i<M*N; i++) {
+      const S = Math.random() > 0.5 ? 1 : -1
+      pattern.push(S)
+    }
+    return pattern
+  }
+  function copyPattern(pattern) {
+    const copy = []
+    for(let i=0; i<pattern.length; i++) {
+      copy.push(pattern[i])
+    }
+    return copy
+  }
+  function emptyPattern() {
+    const pattern = []
+    for(let i=0; i<M*N; i++) {
+      pattern.push(-1)
+    }
+    return pattern
+  }
+  
+  function emptyPatterns(count) {
+    const patterns = []
+    for(let i=0; i<count; i++) {
+      patterns.push(emptyPattern())
+    }
+    return patterns
+  }
+
   return (<>
     <div className="text-center p-1 m-2">
       <span className="_title">Neural Recall</span>
     </div>
+
+    <ParamInput M={M} N={N} a={a} PictureCount={PictureCount}
+      setM={setM} setN={setN} setA={setA} setPictureCount={setPictureCount}
+    />
     <Panel M={M} PictureCount={PictureCount} a={a} patterns={patterns}
      toggleDot={toggleDot} copyPicture={copyPicture}/>
 
@@ -138,10 +197,10 @@ function App() {
     
     <div className="_buttonBar">
       <div onClick={() => {recall()}}
-        className="btn btn-warning m-2 _btn"
+        className="btn btn-dark m-2 _btn"
       >Recall</div>
       <div onClick={() => {clearRecall()}}
-        className="btn btn-dark m-2 _btn"
+        className="btn btn-danger m-2 _btn"
       >Clear Recall</div>
     </div>
   </>);
@@ -149,33 +208,4 @@ function App() {
 
 export default App;
 
-function randomGeneratePattern() {  
-  const pattern = []
-  for(let i=0; i<M*N; i++) {
-    const S = Math.random() > 0.5 ? 1 : -1
-    pattern.push(S)
-  }
-  return pattern
-}
-function copyPattern(pattern) {
-  const copy = []
-  for(let i=0; i<pattern.length; i++) {
-    copy.push(pattern[i])
-  }
-  return copy
-}
-function emptyPattern() {
-  const pattern = []
-  for(let i=0; i<M*N; i++) {
-    pattern.push(-1)
-  }
-  return pattern
-}
 
-function emptyPatterns(count) {
-  const patterns = []
-  for(let i=0; i<count; i++) {
-    patterns.push(emptyPattern())
-  }
-  return patterns
-}

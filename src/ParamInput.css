@@ -1,0 +1,9 @@
+._param {
+  max-width: 120px;
+  margin: 10px;
+}
+
+._paramGroup {
+  display: flex;
+  justify-content: center;
+}

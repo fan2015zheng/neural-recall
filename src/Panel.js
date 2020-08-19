@@ -4,8 +4,6 @@ import Picture from './Picture'
 
 function Panel({M, PictureCount, a, patterns, toggleDot, copyPicture}) {
 
-
-
   return(<>
    <div className="container">
       <div className="row">

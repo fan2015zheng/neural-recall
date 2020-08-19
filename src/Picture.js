@@ -4,7 +4,7 @@ import Dot from './Dot'
 
 function Picture({M, a, pattern, pictureIndex, toggleDot}) {
   const pictureStyle = {
-    width: `${M*a}px`,
+    width: `${M*a}px`
   }
   return(<>
     <div className="_picture" style={pictureStyle}>
@@ -12,7 +12,7 @@ function Picture({M, a, pattern, pictureIndex, toggleDot}) {
         (S, j) => {
           
           return (
-            <Dot key={j} width={a} S={S} pictureIndex={pictureIndex} dotIndex={j}
+            <Dot key={j} a={a} S={S} pictureIndex={pictureIndex} dotIndex={j}
               toggleDot={toggleDot}/>
           )
         }

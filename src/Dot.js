@@ -1,16 +1,16 @@
 import React from 'react'
 import './Dot.css'
 
-function Dot({width, S, pictureIndex, dotIndex, toggleDot}) {
+function Dot({a, S, pictureIndex, dotIndex, toggleDot}) {
   let background = S===1 ? '#122': '#FAE5D3'
 
   const dotStyle = {
-    width: width,
-    height: width,
+    height: `${a}px`,
+    width: `${a}px`,
     boxSizing: 'border-box',
     background: background
   }
-
+console.log(a)
   return(<>
     <div style={dotStyle} onClick={() => {
       if (pictureIndex === undefined || pictureIndex === null) {
