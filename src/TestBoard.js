@@ -7,7 +7,7 @@ function TestBoard({M, a, newPattern, recallPattern, toggleDot}) {
   return(<>
     <div className="container">
       <div className="row">
-      In the first region, draw a new image close to one of the above images and click Recall one or more times to see result on the second region.
+      In the first region, draw a new image close to one of the above images to see if the human can recall it. Click Recall one or more times to see what the human remembers.
       </div>
       <div className="row">
         <div className="col-sm-6 col-lg-4 _pictureSpace">
