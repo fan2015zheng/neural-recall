@@ -2,13 +2,13 @@ import React from 'react'
 import './TestBoard.css'
 import Picture from './Picture'
 
-function TestBoard({M, a, newPattern, recallPattern, toggleDot}) {
+function TestBoard({M, a, PictureCount, newPattern, recallPattern, toggleDot}) {
 
   return(<>
     <div className="container">
       <div className="row">
         <div className="col">
-          In the first region, draw a new image close to one of the above images to see if the human can recall it. Click Recall one or more times to see what the human remembers in the second region.
+          In the first of the following 2 rectangular regions, draw a new image close to one of the above {PictureCount} images to see if the human can recall it. Click Recall one or more times to see what the human remembers in the second region.
         </div>
       </div>
       <div className="row">

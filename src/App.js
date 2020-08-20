@@ -194,7 +194,7 @@ function App() {
         className="btn btn-success m-2 _btn"
       >Memorize</div>
     </div>
-    <TestBoard M={M} N={N} a={a} newPattern={newPattern}
+    <TestBoard M={M} N={N} a={a} PictureCount={PictureCount} newPattern={newPattern}
      recallPattern={recallPattern} toggleDot={toggleDot}/>
     
     <div className="_buttonBar">
