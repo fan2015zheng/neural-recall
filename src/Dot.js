@@ -10,7 +10,7 @@ function Dot({a, S, pictureIndex, dotIndex, toggleDot}) {
     boxSizing: 'border-box',
     background: background
   }
-console.log(a)
+  
   return(<>
     <div style={dotStyle} onClick={() => {
       if (pictureIndex === undefined || pictureIndex === null) {

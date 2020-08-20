@@ -24,6 +24,7 @@ function App() {
   
   useEffect(()=> {
   
+    //Copy function over to remove warnings
     function emptyPattern() {
       const pattern = []
       for(let i=0; i<M*N; i++) {
@@ -181,7 +182,8 @@ function App() {
       setM={setM} setN={setN} setA={setA} setPictureCount={setPictureCount}
     />
     <Panel M={M} PictureCount={PictureCount} a={a} patterns={patterns}
-     toggleDot={toggleDot} copyPicture={copyPicture}/>
+     toggleDot={toggleDot} copyPicture={copyPicture}
+     newPattern={newPattern} recallPattern={recallPattern}/>
 
     <div className="_buttonBar">
       <div onClick={() => {randomDraw()}}
