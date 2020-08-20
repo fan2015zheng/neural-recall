@@ -8,7 +8,9 @@ function Panel({M, PictureCount, a, patterns, toggleDot, copyPicture,
   return(<>
    <div className="container">
       <div className="row">
-  <div className="col">Please draw in following {PictureCount} rectangular regions and click Memorize to mimic human memorizing the images.</div>
+        <div className="col">
+          Please draw in following {PictureCount} rectangular regions and click Memorize to mimic human memorizing the images.
+        </div>
       </div>
       <div className="row">
         {patterns.map((pattern, i) => {

@@ -10,7 +10,7 @@ import ParamInput from './ParamInput'
 toast.configure()
 
 function App() {
-  const [M, setM] = useState(3)
+  const [M, setM] = useState(4)
   const [N, setN] = useState(2)
   const [a, setA] = useState(50)
   const [PictureCount, setPictureCount] = useState(3)
